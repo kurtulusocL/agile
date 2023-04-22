@@ -1,0 +1,20 @@
+
+----- a company that does not have a branch,
+Delivery of products in warehouses according to orders received from customers and
+stock account
+
+---- required models
+-- company
+-- customer
+-- order
+-- send mail
+
+-- products
+-- company for save to own products
+-- orders for management to product and stock status
+-- customer - first time order status -
+-- sending e-mails to customers
+
+----- validation controls
+----- automatic reduction of product stocks for each new order
+----- no new order is placed if there is no product in stock

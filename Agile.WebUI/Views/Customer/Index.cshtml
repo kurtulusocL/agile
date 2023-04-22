@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Customer>
+@{
+    ViewData["Title"] = "Customer Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h1>@ViewData["Title"]</h1>
+    <br />
+    <div class="row">
+        <p>
+            <a asp-controller="Customer" asp-action="Create" class="btn btn-outline-primary">+ Add A New Customer</a>
+        </p>
+        <br />
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Name Surname</th>
+                    <th>Phone Number</th>
+                    <th>Email Address</th>
+                    <th>Orders</th>
+                    <th>E-Mails</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.NameSurname</td>
+                        <td>@item.PhoneNumber</td>
+                        <td>@item.Email</td>
+                        <td>
+                            @if (item.Orders.Count() == 1)
+                            {
+                                <span>New Customer</span>
+                            }
+                            else
+                            {
+                                <span>Old Customer</span>
+                            }
+                        </td>
+                        <td>@item.Orders.Count()</td>
+                        <td>@item.SendMails.Count()</td>
+                        <td>
+                            <a asp-controller="SendMail" asp-action="Create" asp-route-id="@item.Id" class="btn btn-outline-primary btn-sm">Send Mail</a> |
+                            <a asp-controller="Order" asp-action="Create" asp-route-id="@item.Id" class="btn btn-outline-primary btn-sm">Add Order</a> |
+                            <a asp-controller="Customer" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-success btn-sm">Update</a> |
+                            <a asp-controller="Customer" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger btn-sm">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        @if (TempData["successDeleted"] != null)
+        {
+            <strong class="badge badge-info">@TempData["successDeleted"]</strong>
+        }
+        else
+        {
+            <strong class="badge badge-warning">@TempData["errorDeleted"]</strong>
+        }
+    </div>
+</div>
+

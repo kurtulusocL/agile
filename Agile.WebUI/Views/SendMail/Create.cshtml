@@ -1,0 +1,62 @@
+﻿@model SendMail
+@{
+    ViewData["Title"] = "Send A New E-mail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <h1>@ViewData["Title"]</h1>
+        <hr />
+        <div class="row">
+            <div class="col-md-6">
+                <form asp-action="Create" method="post">
+                    @Html.AntiForgeryToken()
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <span>Sender Email</span>
+                        <input asp-for="SenderEmail" SenderEmail="Name" class="form-control" type="email" />
+                        <span asp-validation-for="SenderEmail" class="text-danger"></span>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <span>Reciever Email</span>
+                        <input asp-for="RecieverEmail" name="RecieverEmail" class="form-control" type="email" />
+                        <span asp-validation-for="RecieverEmail" class="text-danger"></span>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <span>Email Subject</span>
+                        <input asp-for="Subject" name="Subject" class="form-control" />
+                        <span asp-validation-for="Subject" class="text-danger"></span>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <span>Email Text</span>
+                        <input asp-for="MailText" name="MailText" class="form-control" />
+                        <span asp-validation-for="MailText" class="text-danger"></span>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <input type="submit" value="Send Email" class="btn btn-primary" />
+                        <input type="hidden" asp-for="CustomerId" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            @if (TempData["successCreated"] != null)
+            {
+                <strong>@TempData["successCreated"]</strong>
+            }
+            else
+            {
+                <strong>@TempData["errorCreated"]</strong>
+            }
+        </div>
+    </div>
+    <hr />
+    <div>
+        <a asp-controller="SendMail" asp-action="Index" class="btn btn-outline-dark">Back to Mail List</a>
+    </div>
+</div>

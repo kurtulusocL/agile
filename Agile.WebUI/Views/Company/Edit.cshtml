@@ -1,0 +1,43 @@
+﻿@model Company
+@{
+    ViewData["Title"] = "Update to Company";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <h1>@ViewData["Title"]</h1>
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Edit" method="post">
+                    @Html.AntiForgeryToken()
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <span>Company Name</span>
+                        <input asp-for="Name" name="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <input type="submit" value="Update" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            @if (TempData["successUpdated"] != null)
+            {
+                <strong>@TempData["successUpdated"]</strong>
+            }
+            else
+            {
+                <strong>@TempData["errorUpdated"]</strong>
+            }
+        </div>
+    </div>
+    <hr />
+    <div>
+        <a asp-controller="Company" asp-action="Index" class="btn btn-outline-dark">Back to Company List</a>
+    </div>
+</div>

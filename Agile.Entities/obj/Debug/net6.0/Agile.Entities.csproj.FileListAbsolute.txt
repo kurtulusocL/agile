@@ -1,0 +1,15 @@
+C:\Users\kurtulusocL\Desktop\Agile\Agile.Entities\bin\Debug\net6.0\Agile.Entities.deps.json
+C:\Users\kurtulusocL\Desktop\Agile\Agile.Entities\bin\Debug\net6.0\Agile.Entities.dll
+C:\Users\kurtulusocL\Desktop\Agile\Agile.Entities\bin\Debug\net6.0\Agile.Entities.pdb
+C:\Users\kurtulusocL\Desktop\Agile\Agile.Entities\bin\Debug\net6.0\Agile.Core.dll
+C:\Users\kurtulusocL\Desktop\Agile\Agile.Entities\bin\Debug\net6.0\Agile.Core.pdb
+C:\Users\kurtulusocL\Desktop\Agile\Agile.Entities\obj\Debug\net6.0\Agile.Entities.csproj.AssemblyReference.cache
+C:\Users\kurtulusocL\Desktop\Agile\Agile.Entities\obj\Debug\net6.0\Agile.Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kurtulusocL\Desktop\Agile\Agile.Entities\obj\Debug\net6.0\Agile.Entities.AssemblyInfoInputs.cache
+C:\Users\kurtulusocL\Desktop\Agile\Agile.Entities\obj\Debug\net6.0\Agile.Entities.AssemblyInfo.cs
+C:\Users\kurtulusocL\Desktop\Agile\Agile.Entities\obj\Debug\net6.0\Agile.Entities.csproj.CoreCompileInputs.cache
+C:\Users\kurtulusocL\Desktop\Agile\Agile.Entities\obj\Debug\net6.0\Agile.Entities.csproj.CopyComplete
+C:\Users\kurtulusocL\Desktop\Agile\Agile.Entities\obj\Debug\net6.0\Agile.Entities.dll
+C:\Users\kurtulusocL\Desktop\Agile\Agile.Entities\obj\Debug\net6.0\refint\Agile.Entities.dll
+C:\Users\kurtulusocL\Desktop\Agile\Agile.Entities\obj\Debug\net6.0\Agile.Entities.pdb
+C:\Users\kurtulusocL\Desktop\Agile\Agile.Entities\obj\Debug\net6.0\ref\Agile.Entities.dll

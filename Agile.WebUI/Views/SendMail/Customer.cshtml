@@ -1,0 +1,85 @@
+﻿@using Agile.Core.CrossCuttingConcern.Toolkits
+@using System.Web
+@model IEnumerable<SendMail>
+@{
+    ViewData["Title"] = "E-Mail List by Customer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h3>@ViewData["Title"]</h3>
+    <br />
+    <div class="row">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Customer</th>
+                    <th>Sender Email</th>
+                    <th>Reciever Email</th>
+                    <th>Mail Subject</th>
+                    <th>Mail Text</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @if (item.CustomerId != null)
+                            {
+                                <a asp-controller="SendMail" asp-action="Customer" asp-route-id="@item.Id" target="_blank">@item.Customer.NameSurname</a>
+                            }
+                        </td>
+                        <td>@item.SenderEmail</td>
+                        <td>
+                            @item.RecieverEmail
+                            @* @if (item.CustomerId!=null)
+                        {
+                        @item.Customer.Email
+                        }
+                        else
+                        {
+                        <spa>-</spa>
+                        }*@
+                        </td>
+                        <td>
+                            @if (item.Subject.Length >= 55)
+                            {
+                                @Html.Raw(HttpUtility.HtmlDecode(ReadMore.SafeSubstring(item.Subject, 55) + " ..."))
+                            }
+                            else
+                            {
+                                @Html.Raw(HttpUtility.HtmlDecode(ReadMore.SafeSubstring(item.Subject, 55)))
+                            }
+                        </td>
+                        <td>
+                            @if (item.MailText.Length >= 55)
+                            {
+                                @Html.Raw(HttpUtility.HtmlDecode(ReadMore.SafeSubstring(item.MailText, 55) + " ..."))
+                            }
+                            else
+                            {
+                                @Html.Raw(HttpUtility.HtmlDecode(ReadMore.SafeSubstring(item.MailText, 55)))
+                            }
+                        </td>
+                        <td>
+                            <a asp-controller="SendMail" asp-action="Detail" asp-route-id="@item.Id" class="btn btn-outline-info btn-sm">Detail</a> |
+                            <a asp-controller="SendMail" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger btn-sm">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        @if (TempData["successDeleted"] != null)
+        {
+            <strong class="badge badge-info">@TempData["successDeleted"]</strong>
+        }
+        else
+        {
+            <strong class="badge badge-warning">@TempData["errorDeleted"]</strong>
+        }
+    </div>
+</div>
